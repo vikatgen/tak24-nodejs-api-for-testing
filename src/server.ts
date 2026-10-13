@@ -2,7 +2,7 @@ import app from './app.js'
 import { Server } from "node:http";
 
 let server: Server;
-let port: number = process.env.PORT
+let port: number = Number(process.env.PORT)
 
 async function startServer() {
     server = app.listen(port, () => {
