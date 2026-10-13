@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "./dist",
+    "module": "nodenext",
+    "target": "ES2022",
+    "types": ["node"],
+    "sourceMap": true,
+    "noUncheckedIndexedAccess": true,
+
+    "strict": true,
+    "verbatimModuleSyntax": false,
+
+    "skipLibCheck": true,
+    "allowJs": true,
+    "checkJs": false,
+    "noEmitOnError": true,
+
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true
+
+  },
+  "include": ["src/**/*", "tests/**/*"],
+  "exclude": ["node_modules", "dist"]
+}

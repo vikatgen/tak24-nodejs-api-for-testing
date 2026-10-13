@@ -2,10 +2,11 @@ import app from './app.js'
 import { Server } from "node:http";
 
 let server: Server;
+let port: number = process.env.PORT
 
 async function startServer() {
-    server = app.listen(3000, () => {
-        console.log(`Server started at http://localhost:3000`);
+    server = app.listen(port, () => {
+        console.log(`Server started at http://localhost:${port}`);
     });
 
     server.on('error', (error) => {
