@@ -13,9 +13,9 @@ const envSchema = z.object({
         .max(65535)
         .default(3000),
 
-    DATABASE_URL: z
-        .string()
-        .url()
+    DATABASE_URL: z.url(),
+    BETTER_AUTH_URL: z.url(),
+    BETTER_AUTH_SECRET: z.string().min(32),
 });
 
 const parseEnv = () => {

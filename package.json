@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server": "tsx --env-file=.env src/server.ts",
+    "auth:generate": "npx auth generate --config src/auth/auth.ts --output src/db/schema/auth.schema.ts",
     "typecheck": "tsc --noEmit",
     "db:migrate": "drizzle-kit migrate",
     "db:generate": "drizzle-kit generate",
@@ -15,6 +16,8 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "@better-auth/drizzle-adapter": "^1.7.12",
+    "better-auth": "^1.7.12",
     "drizzle-orm": "^0.45.4",
     "express": "^5.3.0",
     "pg": "^8.23.1",
