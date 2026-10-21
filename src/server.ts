@@ -1,6 +1,9 @@
 import app from './app.js';
 import { Server } from "node:http";
 import { env } from './config/env.js';
+import {pool} from "./db/index.js";
+
+await pool.query("SELECT 1");
 
 const server: Server = app.listen(env.PORT, (error) => {
     if (error) throw error;
@@ -16,6 +19,7 @@ async function shutdown() {
     setTimeout(() => process.exit(1), 8000);
 
     await new Promise(resolve => server.close(resolve));
+    await pool.end();
     process.exit(0);
 }
 
