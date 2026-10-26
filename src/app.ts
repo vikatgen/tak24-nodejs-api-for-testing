@@ -7,4 +7,6 @@ const app = express();
 app.all("/api/auth/*splat", toNodeHandler(auth));
 app.use(express.json());
 
+app.use(express.static("public"));
+
 export default app;
