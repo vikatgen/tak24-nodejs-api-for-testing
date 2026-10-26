@@ -18,6 +18,8 @@ const envSchema = z.object({
     BETTER_AUTH_SECRET: z.string().min(32),
     GOOGLE_CLIENT_ID: z.string().min(12),
     GOOGLE_CLIENT_SECRET: z.string().min(12),
+    GITHUB_CLIENT_ID: z.string().min(12),
+    GITHUB_CLIENT_SECRET: z.string().min(12),
 });
 
 const parseEnv = () => {
