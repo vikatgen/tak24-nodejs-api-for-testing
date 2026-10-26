@@ -11,6 +11,12 @@ export const auth = betterAuth({
         provider: "pg",
         schema
     }),
+    socialProviders: {
+        google: {
+            clientId: env.GOOGLE_CLIENT_ID,
+            clientSecret: env.GOOGLE_CLIENT_SECRET,
+        }
+    },
     advanced: {
         database: {
             generateId: "uuid"
