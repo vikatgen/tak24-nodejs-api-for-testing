@@ -26,19 +26,26 @@ githubButton.addEventListener("click", async () => {
     });
 
     const data = await response.json();
-    await renderMe();
     window.location.href = data.url;
 });
 
 logoutButton.addEventListener("click", async () => {
-    await fetch("/api/auth/sign-in/logout", {
+    await fetch("/api/auth/sign-out", {
         method: "POST",
     });
-    await renderMe();
     window.location.reload();
 })
 
-const renderMe = async () => {
-    const response = await fetch("/api/me");
-    meContainer.textContent = `${response.status}\n${JSON.stringify(await response.json(), null, 2)}`;
+async function renderMe() {
+    try {
+        const response = await fetch("/api/me");
+        const data = await response.json();
+
+        meContainer.textContent = `${response.status}\n${JSON.stringify(data, null, 2)}`
+    } catch (error) {
+        console.log("Kasutaja päringu viga: ", error);
+        meContainer.textContent = "Kasutaja andmete laadimine ebaõnnestus";
+    }
 }
+
+renderMe();
